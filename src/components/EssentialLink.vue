@@ -1,12 +1,6 @@
 <template>
-  <q-item
-    clickable
-    :to="!link.isExternal ? link.to : undefined"
-  >
-    <q-item-section
-      v-if="link.icon"
-      avatar
-    >
+  <q-item clickable active-class="remove-active" :to="!link.isExternal ? link.to : undefined">
+    <q-item-section v-if="link.icon" avatar>
       <q-icon :name="link.icon" />
     </q-item-section>
 

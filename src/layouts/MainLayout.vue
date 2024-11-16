@@ -58,6 +58,11 @@ export default defineComponent({
     linksList() {
       return [
         {
+          title: this.$t('menu.home'),
+          to: '/',
+          isExternal: false
+        },
+        {
           title: this.$t('menu.add_a_run'),
           to: '/add',
           isExternal: false

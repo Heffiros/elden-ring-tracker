@@ -7,6 +7,7 @@ export default {
   message: {
   },
   menu: {
+    home: 'Home',
     history: "Historic",
     add_a_run: "Add a run"
   }
