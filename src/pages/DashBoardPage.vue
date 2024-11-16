@@ -1,26 +1,17 @@
 <template>
   <q-page class="q-pa-sm">
-
- 
-
-    <div class="row q-col-gutter-sm  q-py-sm">
-      
-    </div>
-
-    <div class="row q-col-gutter-sm  q-pb-sm">
-      
-    </div>
-
-    <table-visits/>
+    <app-boss-over-time-chart />
   </q-page>
 </template>
 
 
 
 <script>
+import AppBossOverTimeChart from 'src/components/AppBossOverTimeChart.vue'
 export default {
   name: 'DashboardPage',
-  
+  components: {
+    AppBossOverTimeChart
+  }
 }
 </script>
-  
