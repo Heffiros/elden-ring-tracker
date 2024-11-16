@@ -12,5 +12,5 @@ export default defineComponent({
     const store = useRunDataStore()
     store.fetchItems()
   }
-});
+})
 </script>

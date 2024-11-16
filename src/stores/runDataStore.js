@@ -27,7 +27,7 @@ export const useRunDataStore = defineStore('runDataStore', {
         const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
         this.runs = items
       } catch (error) {
-        console.error('Erreur lors de la récupération des items:', error);
+        console.error('Erreur lors de la récupération des items:', error)
       }
     },
     async addItem(item) {

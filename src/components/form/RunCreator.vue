@@ -51,16 +51,14 @@ export default {
   },
   async mounted() {
     try {
-      const response = await fetch('/bosses.json'); // Charger le fichier JSON depuis public
-      const data = await response.json();
-
-      // Transformer les données en un format adapté à QSelect
+      const response = await fetch('/bosses.json')
+      const data = await response.json()
       this.options = data.map(boss => ({
-        label: boss.name,  // Le nom du boss sera affiché
-        value: boss.name   // La valeur associée sera aussi le nom du boss
-      }));
+        label: boss.name,
+        value: boss.name
+      }))
     } catch (error) {
-      console.error('Erreur lors du chargement des données JSON:', error);
+      console.error('Erreur lors du chargement des données JSON:', error)
     }
   }
 }
