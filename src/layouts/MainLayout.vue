@@ -2,50 +2,34 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          @click="toggleLeftDrawer"
-          icon="menu"
-          aria-label="Menu"
-        />
+        <q-btn flat dense round @click="toggleLeftDrawer" icon="menu" aria-label="Menu" />
         <q-toolbar-title>
-          Elden Ring Tracker
+          <q-item class="mainLogo" clickable :to="'/'">Elden Ring Tracker</q-item>
         </q-toolbar-title>
-        <q-space/>
+        <q-space />
         <div class="q-gutter-sm row items-center no-wrap">
           <q-btn round dense flat color="white" icon="fab fa-github" type="a"
-                 href="https://github.com/pratik227/quasar-admin" target="_blank">
+            href="https://github.com/pratik227/quasar-admin" target="_blank">
           </q-btn>
         </div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      class="bg-primary text-white"
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="bg-primary text-white">
       <q-list>
-        <EssentialLink
-          v-for="link in linksList"
-          :key="link.title"
-          :link="link"
-        />
+        <EssentialLink v-for="link in linksList" :key="link.title" :link="link" />
       </q-list>
     </q-drawer>
 
     <q-page-container class="bg-grey-2">
-      <router-view/>
+      <router-view />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue'
-import {useQuasar} from "quasar"
+import { useQuasar } from "quasar"
 import EssentialLink from 'components/EssentialLink.vue'
 
 export default defineComponent({
@@ -53,12 +37,12 @@ export default defineComponent({
   components: {
     EssentialLink
   },
-  data () {
+  data() {
     return {
       leftDrawerOpen: false
     }
   },
-  setup () {
+  setup() {
     const leftDrawerOpen = ref(false)
     const $q = useQuasar()
 
@@ -71,8 +55,8 @@ export default defineComponent({
     }
   },
   computed: {
-    linksList () {
-      return  [
+    linksList() {
+      return [
         {
           title: this.$t('menu.add_a_run'),
           to: '/add',
@@ -88,3 +72,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+.mainLogo {
+  color: white;
+}
+</style>
