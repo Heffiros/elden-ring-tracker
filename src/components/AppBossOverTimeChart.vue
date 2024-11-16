@@ -70,10 +70,6 @@ export default defineComponent({
         ]
       }
     }
-  },
-  async mounted() {
-    const store = useRunDataStore()
-    await store.fetchItems()
   }
 })
 </script>

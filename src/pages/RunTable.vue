@@ -59,10 +59,6 @@ export default {
   },
   computed: {
     ...mapState(useRunDataStore, ['runs'])
-  },
-  mounted() {
-    const store = useRunDataStore()
-    store.fetchItems()
   }
 }
 </script>
