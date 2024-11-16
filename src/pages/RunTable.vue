@@ -3,8 +3,7 @@
     <q-card class="table-bg no-shadow" bordered>
       <q-card-section>
         <div class="text-h6 text-white">
-          Dark Mode
-          <q-btn label="Export" color="blue" class="float-right text-capitalize  shadow-3" icon="person" />
+          Historique
         </div>
       </q-card-section>
       <q-separator color="white" />
