@@ -10,7 +10,9 @@ export default defineComponent({
   name: 'App',
   mounted() {
     const store = useRunDataStore()
-    store.fetchItems()
+    if (store.getTotalNbRun === 0) {
+      store.fetchItems()
+    }
   }
 })
 </script>

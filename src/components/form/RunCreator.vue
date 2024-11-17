@@ -5,8 +5,7 @@
       <q-input v-model="form.pveDeaths" label="Morts PVE" type="number" required />
 
 
-      <q-select v-model="form.bossKiller" :options="options" label="Boss Killer" emit-value map-options use-input
-        input-debounce="300" hint="Search" stack-label />
+      <q-select v-model="form.bossKiller" :options="options" label="Boss Killer" input-debounce="300" clearable />
 
       <q-input v-model="form.timer" label="Timer" type="number" required />
       <q-btn class="add" label="Ajouter la run" type="submit" color="primary" />
@@ -41,7 +40,6 @@ export default {
       const store = useRunDataStore()
       await store.addItem(newRun)
       this.form = {
-        idRun: '',
         bossesKilled: 0,
         pveDeaths: 0,
         bossKiller: '',
@@ -51,12 +49,13 @@ export default {
   },
   async mounted() {
     try {
-      const response = await fetch('/bosses.json')
+      const response = await fetch('/bossesv2.json')
       const data = await response.json()
       this.options = data.map(boss => ({
-        label: boss.name,
-        value: boss.name
+        label: boss,
+        value: boss
       }))
+      console.log(this.options)
     } catch (error) {
       console.error('Erreur lors du chargement des données JSON:', error)
     }

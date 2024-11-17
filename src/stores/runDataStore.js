@@ -7,6 +7,9 @@ export const useRunDataStore = defineStore('runDataStore', {
     runs: []
   }),
   getters: {
+    getTotalNbRun: state => {
+      return state.runs.length
+    },
     getBestRun: state => {
       if (state.runs.length === 0) return null
       return state.runs.reduce((maxRun, currentRun) => {
@@ -17,6 +20,10 @@ export const useRunDataStore = defineStore('runDataStore', {
       if (state.runs.length === 0) return 0
       const totalBossKilled = state.runs.reduce((sum, run) => sum + Number(run.bossesKilled), 0)
       return totalBossKilled / state.runs.length
+    },
+    getNbClosedRun: state => {
+      if (state.runs.length === 0) return 0
+      return state.runs.filter(run => run.timer === 120).length
     }
   },
   actions: {
@@ -40,5 +47,8 @@ export const useRunDataStore = defineStore('runDataStore', {
         console.error('Erreur lors de l\'ajout de l\'item:', error)
       }
     }
+  },
+  persist: {
+    storage: sessionStorage
   }
 })
