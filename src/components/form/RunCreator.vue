@@ -3,10 +3,7 @@
     <q-form @submit.prevent="handleSubmit">
       <q-input v-model="form.bossesKilled" label="Nombre de boss tués" type="number" required />
       <q-input v-model="form.pveDeaths" label="Morts PVE" type="number" required />
-
-
       <q-select v-model="form.bossKiller" :options="options" label="Boss Killer" input-debounce="300" clearable />
-
       <q-input v-model="form.timer" label="Timer" type="number" required />
       <q-btn class="add" label="Ajouter la run" type="submit" color="primary" />
     </q-form>
@@ -38,7 +35,7 @@ export default {
         timer: this.form.timer
       }
       const store = useRunDataStore()
-      await store.addItem(newRun)
+      await store.addRun(newRun)
       this.form = {
         bossesKilled: 0,
         pveDeaths: 0,

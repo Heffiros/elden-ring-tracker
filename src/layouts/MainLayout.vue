@@ -11,6 +11,7 @@
           <q-btn round dense flat color="white" icon="fab fa-github" type="a"
             href="https://github.com/pratik227/quasar-admin" target="_blank">
           </q-btn>
+          <q-btn round dense flat color="secondary" icon="refresh" @click="hardRefresh" />
         </div>
       </q-toolbar>
     </q-header>
@@ -31,6 +32,7 @@
 import { defineComponent, ref } from 'vue'
 import { useQuasar } from "quasar"
 import EssentialLink from 'components/EssentialLink.vue'
+import { useRunDataStore } from 'src/stores/runDataStore'
 
 export default defineComponent({
   name: 'MainLayout',
@@ -42,7 +44,7 @@ export default defineComponent({
       leftDrawerOpen: false
     }
   },
-  setup() {
+  mounted() {
     const leftDrawerOpen = ref(false)
     const $q = useQuasar()
 
@@ -73,6 +75,13 @@ export default defineComponent({
           isExternal: false
         }
       ]
+    }
+  },
+  methods: {
+    async hardRefresh() {
+      const store = useRunDataStore()
+      await store.resetRuns()
+      await store.fetchRuns()
     }
   }
 })
