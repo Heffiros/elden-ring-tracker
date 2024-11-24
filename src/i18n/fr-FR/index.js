@@ -9,6 +9,7 @@ export default {
   menu: {
     home: "Accueil",
     history: "Historique",
-    add_a_run: "Ajouter une run"
+    add_a_run: "Ajouter une run",
+    routing: "Routing"
   }
 }

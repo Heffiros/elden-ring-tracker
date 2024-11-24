@@ -73,6 +73,11 @@ export default defineComponent({
           title: this.$t('menu.history'),
           to: '/dashboard',
           isExternal: false
+        },
+        {
+          title: this.$t('menu.routing'),
+          to: '/routing',
+          isExternal: false
         }
       ]
     }

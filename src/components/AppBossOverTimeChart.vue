@@ -23,11 +23,6 @@ export default defineComponent({
   components: {
     ECharts
   },
-  data() {
-    return {
-
-    }
-  },
   computed: {
     ...mapState(useRunDataStore, ['runs']),
     options() {

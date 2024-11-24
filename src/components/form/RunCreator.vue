@@ -3,7 +3,8 @@
     <q-form @submit.prevent="handleSubmit">
       <q-input v-model="form.bossesKilled" label="Nombre de boss tués" type="number" required />
       <q-input v-model="form.pveDeaths" label="Morts PVE" type="number" required />
-      <q-select v-model="form.bossKiller" :options="options" label="Boss Killer" input-debounce="300" clearable />
+      <q-select v-model="form.bossKiller" :options="options" label="Boss Killer" emit-value input-debounce="300"
+        clearable />
       <q-input v-model="form.timer" label="Timer" type="number" required />
       <q-btn class="add" label="Ajouter la run" type="submit" color="primary" />
     </q-form>
@@ -52,7 +53,6 @@ export default {
         label: boss,
         value: boss
       }))
-      console.log(this.options)
     } catch (error) {
       console.error('Erreur lors du chargement des données JSON:', error)
     }

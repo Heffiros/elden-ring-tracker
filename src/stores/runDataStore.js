@@ -19,11 +19,19 @@ export const useRunDataStore = defineStore('runDataStore', {
     getAverageRun: state => {
       if (state.runs.length === 0) return 0
       const totalBossKilled = state.runs.reduce((sum, run) => sum + Number(run.bossesKilled), 0)
-      return totalBossKilled / state.runs.length
+      return Math.round(totalBossKilled / state.runs.length)
+    },
+    getTimeAverageRun: state => {
+      if (state.runs.length === 0) return 0
+      const totalBossKilled = state.runs.reduce((sum, run) => sum + Number(run.timer), 0)
+      return Math.round(totalBossKilled / state.runs.length)
     },
     getNbClosedRun: state => {
       if (state.runs.length === 0) return 0
       return state.runs.filter(run => run.timer === 120).length
+    },
+    getLastXRun: (state) => (x) => {
+      return state.runs.slice(0, x)
     }
   },
   actions: {
@@ -32,7 +40,6 @@ export const useRunDataStore = defineStore('runDataStore', {
         const runsCollection = collection(db, 'runs')
         const snapshot = await getDocs(runsCollection)
         const items = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-        console.log(items)
         this.runs = items
       } catch (error) {
         console.error('Erreur lors de la récupération des items:', error)

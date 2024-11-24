@@ -5,7 +5,8 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/DashBoardPage.vue') },
       { path: '/dashboard', component: () => import('pages/RunTable.vue') },
-      { path: '/add', component: () => import('pages/AddRunPage.vue') }
+      { path: '/add', component: () => import('pages/AddRunPage.vue') },
+      { path: '/routing', component: () => import('pages/RoutingPage.vue') }
     ]
   },
 
